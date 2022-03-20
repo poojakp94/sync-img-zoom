@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from "styled-components";
+import { useRef } from "react";
+
+import FirstImgComponent from "./components/FirstImgcomponent";
+import SecondImgComponent from "./components/SecondImgComponent";
+
+const Wrapper = styled.section`
+  // border: 2px solid red;
+  display: flex;
+  gap: 15px;
+  padding: 10px;
+`;
 
 function App() {
+  const ref1 = useRef();
+  const ref2 = useRef();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+      <FirstImgComponent firstRef={ref1} secondRef={ref2} />
+      <SecondImgComponent firstRef={ref1} secondRef={ref2} />
+    </Wrapper>
   );
 }
 
