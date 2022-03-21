@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
-import img from "../img2.jpg";
+import img from "../img1.jpg";
 
 const Img = styled.img`
   height: 100%;

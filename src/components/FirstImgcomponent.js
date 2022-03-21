@@ -12,8 +12,6 @@ const FirstImgComponent = ({ firstRef, secondRef }) => {
   const onFunctionDispatch = ({ ...props }) => {
     const { state } = props;
 
-    // console.log(props);
-    // console.log(firstRef.current);
     firstRef.current.setTransform(
       state.positionX,
       state.positionY,
