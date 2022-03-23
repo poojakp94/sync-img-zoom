@@ -1,5 +1,10 @@
 import styled from "styled-components";
-import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import { useEffect, useRef } from "react";
+import {
+  TransformWrapper,
+  TransformComponent,
+  ReactZoomPanPinchRef,
+} from "react-zoom-pan-pinch";
 
 import img from "../img1.jpg";
 
@@ -8,19 +13,27 @@ const Img = styled.img`
   width: 100%;
 `;
 
-const SecondImgComponent = ({ firstRef, secondRef }) => {
+const SecondImgComponent = ({ func1, transformState }) => {
+  const ref = useRef();
+
+  useEffect(() => {
+    if (transformState) {
+      ref.current.setTransform(
+        transformState.positionX,
+        transformState.positionY,
+        transformState.scale
+      );
+    }
+  }, [transformState]);
+
   const onFunctionDispatch = ({ ...props }) => {
     const { state } = props;
-
-    secondRef.current.setTransform(
-      state.positionX,
-      state.positionY,
-      state.scale
-    );
+    func1({ ...state });
   };
+
   return (
     <TransformWrapper
-      ref={firstRef}
+      ref={ref}
       onPanning={onFunctionDispatch}
       onZoom={onFunctionDispatch}
     >

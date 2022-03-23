@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import { useRef } from "react";
+import { useState } from "react";
 
 import FirstImgComponent from "./components/FirstImgcomponent";
 import SecondImgComponent from "./components/SecondImgComponent";
 
+// import ThirdImgComponent from "./components/ThirdImgComponent";
 const Wrapper = styled.section`
   // border: 2px solid red;
   display: flex;
@@ -12,13 +13,22 @@ const Wrapper = styled.section`
 `;
 
 function App() {
-  const ref1 = useRef();
-  const ref2 = useRef();
+  const [getTransformState, setTransformState] = useState(null);
 
   return (
     <Wrapper>
-      <FirstImgComponent firstRef={ref1} secondRef={ref2} />
-      <SecondImgComponent firstRef={ref1} secondRef={ref2} />
+      <FirstImgComponent
+        func1={setTransformState}
+        transformState={getTransformState}
+      />
+      <SecondImgComponent
+        func1={setTransformState}
+        transformState={getTransformState}
+      />
+      {/* <ThirdImgComponent
+        func1={setTransformState}
+        transformState={getTransformState}
+      /> */}
     </Wrapper>
   );
 }

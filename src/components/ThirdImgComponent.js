@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import { useEffect, useRef } from "react";
-
-import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import {
+  TransformWrapper,
+  TransformComponent,
+  ReactZoomPanPinchRef,
+} from "react-zoom-pan-pinch";
 
 import img from "../img1.jpg";
 
@@ -10,7 +13,7 @@ const Img = styled.img`
   width: 100%;
 `;
 
-const FirstImgComponent = ({ func1, transformState }) => {
+const ThirdImgComponent = ({ func1, transformState }) => {
   const ref = useRef();
 
   useEffect(() => {
@@ -41,4 +44,4 @@ const FirstImgComponent = ({ func1, transformState }) => {
   );
 };
 
-export default FirstImgComponent;
+export default ThirdImgComponent;
